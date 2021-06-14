@@ -8,8 +8,8 @@
     <div class="py-12">
         <div class="container">
             <div class="row">
-                <table class="table">
-                        <thead>
+                <table class="table table-bordered">
+                        <thead class="table-dark">
                             <tr>
                             <th scope="col">ลำดับ</th>
                             <th scope="col">ชื่อ</th>
@@ -18,9 +18,10 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php ($i=1)
                             @foreach ($users as $row)
                             <tr>
-                                <th>{{$row->id}}</th>
+                                <th>{{$i++}}</th>
                                 <td>{{$row->name}}</td>
                                 <td>{{$row->email}}</td>
                                 <td>{{$row->created_at}}</td>
