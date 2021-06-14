@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\User;
+use Illuminate\Support\Facades\DB;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    //ข้อมูลมาจาก Model user
-    $users=User::all();
+    //ข้อมูลมาจาก Query Builder
+    $users=DB::table('users')->get();
     return view('dashboard',compact('users'));
 })->name('dashboard');
