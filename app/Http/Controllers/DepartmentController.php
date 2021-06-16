@@ -19,7 +19,8 @@ class DepartmentController extends Controller
         ],
         [
             'department_name.required'=>"กรุณากรอกชื่อแผนก",
-            'department_name.max'=>"ห้ามป้อนเกิน 255 ตัวอักษร"
+            'department_name.max'=>"ห้ามป้อนเกิน 255 ตัวอักษร",
+            'department_name.unique'=>"มีนี้ข้อมูลแล้ว!"
         ]
 
         );
@@ -28,5 +29,6 @@ class DepartmentController extends Controller
         $department->department_name = $request->department_name;
         $department->user_id = Auth::user()->id;
         $department->save();
+        return redirect()->back()->with('success',"บันทึกข้อมูลสำเร็จ");
     }
 }

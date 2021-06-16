@@ -10,6 +10,9 @@
         <div class="container">
             <div class="row">
                <div class="col-md-8">
+                    @if(session("success"))
+                        <div class="alert alert-success">{{session('success')}}</div>
+                    @endif
                     <div class="card">
                         <div class="card-header">ตารางข้อมูลแผนก</div>
                     </div>
