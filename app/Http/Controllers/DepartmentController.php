@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\DB;
 class DepartmentController extends Controller
 {
     public function index(){
-        return view ('admin.department.index');
+        $departments=Department::all();
+        return view ('admin.department.index',compact('departments'));
     }
 
     public function store (Request $request){
@@ -31,7 +32,7 @@ class DepartmentController extends Controller
         $data["user_id"] = Auth::user()->id;
 
         //Query builder
-        DB::table('departments')->insert($data);
+        DB::table('departments')->insert($data );
         return redirect()->back()->with('success',"บันทึกข้อมูลสำเร็จ");
     }
 }

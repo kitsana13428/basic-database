@@ -15,6 +15,27 @@
                     @endif
                     <div class="card">
                         <div class="card-header">ตารางข้อมูลแผนก</div>
+                            <table class="table ">
+                                <thead class="table-dark">
+                                    <tr>
+                                    <th scope="col">ลำดับ</th>
+                                    <th scope="col">ชื่อแผนก</th>
+                                    <th scope="col">รหัสผู้ใช้งาน</th>
+                                    <th scope="col">เวลาบันทึก</th>                                    
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @php ($i=1)
+                                    @foreach ($departments as $row)
+                                    <tr>
+                                        <th>{{$i++}}</th>
+                                        <td>{{$row->department_name}}</td>
+                                        <td>{{$row->user_id}}</td>
+                                        <td>{{Carbon\Carbon::parse($row->created_at)->diffForHumans()}}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                     </div>
                </div>
                <div class="col-md-4">
