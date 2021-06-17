@@ -43,4 +43,22 @@ class DepartmentController extends Controller
         $department = Department::find($id);
         return view('admin.department.edit', compact('department'));
     }
+
+    public function update(Request $request, $id){
+         //ตรวจสอบข้อมูล
+         $request->validate([
+            'department_name'=>'required|unique:departments|max:255'
+        ],
+            [
+            'department_name.required'=>"กรุณากรอกชื่อแผนก",
+            'department_name.max'=>"ห้ามป้อนเกิน 255 ตัวอักษร",
+            'department_name.unique'=>"มีนี้ข้อมูลแล้ว!"
+            ]
+        );
+        $update = Department::find($id)->update([
+            'department_name'=>$request->department_name,
+            'user_id'=>Auth::user()->id
+        ]);
+        return redirect()->route('department')->with('success', "อัพเดตข้อมูลเรียบร้อย");
+    }
 }

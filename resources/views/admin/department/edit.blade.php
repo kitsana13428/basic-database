@@ -13,7 +13,7 @@
                <div class="card">
                         <div class="card-header">แบบฟอร์มแก้ไขข้อมูล</div>
                         <div class="card-body">
-                            <form action="" method="post">
+                            <form action="{{url('/department/update/'.$department->id)}}" method="post">
                             @csrf
                                 <div class="form-group">
                                     <label for="department_name">ชื่อตำแหน่งงาน</label>
