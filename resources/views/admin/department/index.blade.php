@@ -31,11 +31,18 @@
                                         <th>{{$i++}}</th>
                                         <td>{{$row->department_name}}</td>
                                         <td>{{$row->user_id}}</td>
-                                        <td>{{Carbon\Carbon::parse($row->created_at)->diffForHumans()}}</td>
+                                        <td>
+                                            @if($row->created_at == NULL)
+                                                ไม่มีข้อมูล
+                                            @else
+                                                {{Carbon\Carbon::parse($row->created_at)->diffForHumans()}}
+                                            @endif
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
                             </table>
+                            {{$departments->links()}}
                     </div>
                </div>
                <div class="col-md-4">
