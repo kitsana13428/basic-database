@@ -65,8 +65,7 @@
                             @enderror
                                 <br>
                                 <input type="submit" value="บันทึก" class="btn btn-success">
-                            </form>
-                            
+                            </form>        
                         </div>
                     </div>
                </div>
