@@ -10,7 +10,10 @@ use Illuminate\Support\Facades\DB;
 class DepartmentController extends Controller
 {
     public function index(){
-        $departments=Department::paginate(3);
+        $departments=DB::table('departments')
+        ->join('users', 'departments.user_id', 'users.id')
+        ->select('departments.*', 'users.name')
+        ->paginate(4);
         return view ('admin.department.index',compact('departments'));
     }
 
@@ -34,5 +37,10 @@ class DepartmentController extends Controller
         //Query builder
         DB::table('departments')->insert($data );
         return redirect()->back()->with('success',"บันทึกข้อมูลสำเร็จ");
+    }
+
+    public function edit($id){
+        $department = Department::find($id);
+        return view('admin.department.edit', compact('department'));
     }
 }

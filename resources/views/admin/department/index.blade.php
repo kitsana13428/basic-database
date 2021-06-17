@@ -21,22 +21,25 @@
                                     <th scope="col">ลำดับ</th>
                                     <th scope="col">ชื่อแผนก</th>
                                     <th scope="col">รหัสผู้ใช้งาน</th>
-                                    <th scope="col">เวลาบันทึก</th>                                    
+                                    <th scope="col">เวลาบันทึก</th>  
+                                    <th scope="col">แก้ไข</th>                                  
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @php ($i=1)
                                     @foreach ($departments as $row)
                                     <tr>
-                                        <th>{{$i++}}</th>
+                                        <th>{{$departments->firstItem()+$loop->index}}</th>
                                         <td>{{$row->department_name}}</td>
-                                        <td>{{$row->user_id}}</td>
+                                        <td>{{$row->name}}</td>
                                         <td>
                                             @if($row->created_at == NULL)
                                                 ไม่มีข้อมูล
                                             @else
                                                 {{Carbon\Carbon::parse($row->created_at)->diffForHumans()}}
                                             @endif
+                                        </td>
+                                        <td>
+                                            <a href="{{url('/department/edit/'.$row->id)}}" class="btn btn-primary">แก้ไข</a>
                                         </td>
                                     </tr>
                                     @endforeach
