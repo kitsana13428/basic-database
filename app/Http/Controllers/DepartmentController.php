@@ -64,4 +64,9 @@ class DepartmentController extends Controller
         $delete = Department::find($id)->delete();
         return redirect()->back()->with('success', "ลบข้อมูลเรียบร้อย");
     }
+
+    public function restore($id){
+        $restore = Department::withTrashed()->find($id)->restore();
+        return redirect()->back()->with('success', "กู้ข้อมูลเรียบร้อย");
+    }
 }

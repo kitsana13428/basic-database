@@ -79,7 +79,7 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="{{url('/department/edit/'.$row->id)}}" class="btn btn-warning">กู้คืน</a>
+                                                <a href="{{url('/department/restore/'.$row->id)}}" class="btn btn-warning">กู้คืน</a>
                                             </td>
                                             <td>
                                             <a href="{{url('/department/softdelete/'.$row->id)}}" class="btn btn-danger">ลบ</a>
