@@ -61,9 +61,21 @@
                         <div class="card-body">
                             <form action="{{route('addDepartment')}}" method="post">
                             @csrf
+                            <!--อัพข้อมูลลง ↓-->
                                 <div class="form-group">
-                                    <label for="department_name">ชื่อบริการ</label>
-                                    <input type="text" class="form-control" name="department_name">
+                                    <label for="service_name">ชื่อบริการ</label>
+                                    <input type="text" class="form-control" name="service_name">
+                                </div>
+                            @error('services_name')
+                                <div class="my-2">
+                                    <span class="text-danger">{{$message}}</span>
+                                </div>
+                            @enderror
+
+                            <!--อัพรูปลง ↓-->
+                            <div class="form-group">
+                                    <label for="service_image">ภาพประกอบ</label>
+                                    <input type="file" class="form-control" name="service_image">
                                 </div>
                             @error('services_name')
                                 <div class="my-2">
