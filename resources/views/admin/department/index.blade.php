@@ -13,6 +13,8 @@
                     @if(session("success"))
                         <div class="alert alert-success">{{session('success')}}</div>
                     @endif
+
+                    <!--ตารางข้อมูลหลัก ↓-->
                     <div class="card">
                         <div class="card-header">ตารางข้อมูลแผนก</div>
                             <table class="table ">
@@ -40,10 +42,10 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="{{url('/department/edit/'.$row->id)}}" class="btn btn-warning">แก้ไข</a>
+                                            <a href="{{url('/department/edit/'.$row->id)}}" class="btn btn-info">แก้ไข</a>
                                         </td>
                                         <td>
-                                        <a href="{{url('/department/softdelete/'.$row->id)}}" class="btn btn-danger">ลบ</a>
+                                        <a href="{{url('/department/softdelete/'.$row->id)}}" class="btn btn-warning">ลบ</a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -52,7 +54,9 @@
                             {{$departments->links()}}
                     </div>
 
-                    <div class="card my-2">
+                    <!--ถังขยะ ถ้าไม่มีข้อมุลจะไม่แสดง ↓-->
+                @if (count($trashDepartments)>0)
+                <div class="card my-2">
                         <div class="card-header">ถังขยะ</div>
                                 <table class="table ">
                                     <thead class="table-dark">
@@ -79,10 +83,10 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="{{url('/department/restore/'.$row->id)}}" class="btn btn-warning">กู้คืน</a>
+                                                <a href="{{url('/department/restore/'.$row->id)}}" class="btn btn-info">กู้คืน</a>
                                             </td>
                                             <td>
-                                            <a href="{{url('/department/softdelete/'.$row->id)}}" class="btn btn-danger">ลบ</a>
+                                            <a href="{{url('/department/delete/'.$row->id)}}" class="btn btn-danger">ลบ</a>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -90,6 +94,8 @@
                                 </table>
                                 {{$trashDepartments->links()}}
                     </div>
+                @endif
+                   
                </div>
                <div class="col-md-4">
                <div class="card">

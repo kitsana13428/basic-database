@@ -31,4 +31,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::post('/department/update/{id}', [DepartmentController::class, 'update']);
     Route::get('/department/softdelete/{id}', [DepartmentController::class, 'softdelete']);
     Route::get('/department/restore/{id}', [DepartmentController::class, 'restore']);
+    Route::get('/department/delete/{id}', [DepartmentController::class, 'delete']);
 });
