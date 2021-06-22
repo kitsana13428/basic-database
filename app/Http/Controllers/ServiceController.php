@@ -26,9 +26,18 @@ class ServiceController extends Controller
         ]
     
         );
-        //บันทึกข้อมูล
-       
-        //return redirect()->back()->with('success',"บันทึกข้อมูลสำเร็จ");
+        //การเข้ารหัสรูปภาพ
+        $service_image = $request->file('service_image');
+
+        //Gen รูป
+        $name_gen = hexdec(uniqid());
+        
+        //ดึงนามสกุลรูปภาพ
+        $img_ext = strtolower($service_image->getClientOriginalExtension());
+
+        //รวมรหัสรูป+นามสกุลภาพ
+        $img_name = $name_gen.'.'.$img_ext;
+        dd($img_name);
     }
 }
 
