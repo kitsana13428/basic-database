@@ -18,6 +18,28 @@ class ServiceController extends Controller
         return view('admin.service.edit', compact('service'));
     }
 
+    public function update(Request $request, $id){
+         //ตรวจสอบข้อมูล
+         $request->validate([
+            'service_name'=>'required|max:255'  
+        ],
+        [
+            'service_name.required'=>"กรุณากรอกชื่อบริการ",
+            'service_name.max'=>"ห้ามป้อนเกิน 255 ตัวอักษร",
+           
+        ]
+     );
+     $service_image = $request->file('service_image');
+
+     //อัพเดตภาพและชื่อ
+     if($service_image){
+         dd("ภาพ");
+     }else{
+    //อัพเดตชื่ออย่างเดียว
+        dd("ชื่อ");
+     }      
+   }
+
     public function store (Request $request){
         //ตรวจสอบข้อมูล
         $request->validate([

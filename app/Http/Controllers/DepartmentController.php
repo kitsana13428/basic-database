@@ -57,6 +57,7 @@ class DepartmentController extends Controller
             'department_name'=>$request->department_name,
             'user_id'=>Auth::user()->id
         ]);
+        
         return redirect()->route('department')->with('success', "อัพเดตข้อมูลเรียบร้อย");
     }
 

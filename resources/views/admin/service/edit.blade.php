@@ -13,7 +13,7 @@
                <div class="card">
                         <div class="card-header">แบบฟอร์มแก้ไขข้อมูล</div>
                         <div class="card-body">
-                            <form action="" method="post">
+                            <form action="{{url('/service/update/'.$service->id)}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <!--ข้อความ ↓-->
                                 <div class="form-group">
@@ -37,6 +37,7 @@
                                 </div>
                             @enderror
                                 <br>
+                                <input type="hidden" name="old_image" value="{{$service->service_image}}">
                                 <div class="form-group">
                                     <img src="{{asset($service->service_image)}}" alt="" width="500px" height="500px">
                                 </div>
