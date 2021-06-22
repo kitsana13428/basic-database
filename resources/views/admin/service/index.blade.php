@@ -59,14 +59,14 @@
                <div class="card">
                         <div class="card-header">แบบฟอร์มบริการ</div>
                         <div class="card-body">
-                            <form action="{{route('addDepartment')}}" method="post">
+                            <form action="{{route('addService')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <!--อัพข้อมูลลง ↓-->
                                 <div class="form-group">
                                     <label for="service_name">ชื่อบริการ</label>
                                     <input type="text" class="form-control" name="service_name">
                                 </div>
-                            @error('services_name')
+                            @error('service_name')
                                 <div class="my-2">
                                     <span class="text-danger">{{$message}}</span>
                                 </div>
@@ -77,7 +77,7 @@
                                     <label for="service_image">ภาพประกอบ</label>
                                     <input type="file" class="form-control" name="service_image">
                                 </div>
-                            @error('services_name')
+                            @error('service_image')
                                 <div class="my-2">
                                     <span class="text-danger">{{$message}}</span>
                                 </div>
