@@ -13,6 +13,11 @@ class ServiceController extends Controller
         return view ('admin.service.index',compact('services',));
     }
 
+    public function edit($id){
+        $service = Service::find($id);   
+        return view('admin.service.edit', compact('service'));
+    }
+
     public function store (Request $request){
         //ตรวจสอบข้อมูล
         $request->validate([
