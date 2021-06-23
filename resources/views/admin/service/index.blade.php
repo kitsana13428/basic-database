@@ -47,7 +47,10 @@
                                             <a href="{{url('/service/edit/'.$row->id)}}" class="btn btn-info">แก้ไข</a>
                                         </td>
                                         <td>
-                                        <a href="{{url('/service/delete/'.$row->id)}}" class="btn btn-warning">ลบ</a>
+                                        <a href="{{url('/service/delete/'.$row->id)}}" 
+                                        class="btn btn-warning"
+                                        onclick="return confirm('ต้องการลบข้อมูลหรือไม่ ?')"
+                                        >ลบ</a>
                                         </td>
                                     </tr>
                                     @endforeach

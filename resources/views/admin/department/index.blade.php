@@ -45,7 +45,7 @@
                                             <a href="{{url('/department/edit/'.$row->id)}}" class="btn btn-info">แก้ไข</a>
                                         </td>
                                         <td>
-                                        <a href="{{url('/department/softdelete/'.$row->id)}}" class="btn btn-warning">ลบ</a>
+                                        <a href="{{url('/department/softdelete/'.$row->id)}}" class="btn btn-warning" onclick="return confirm('ต้องการลบข้อมูลหรือไม่ ?')">ลบ</a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -86,7 +86,7 @@
                                                 <a href="{{url('/department/restore/'.$row->id)}}" class="btn btn-info">กู้คืน</a>
                                             </td>
                                             <td>
-                                            <a href="{{url('/department/delete/'.$row->id)}}" class="btn btn-danger">ลบ</a>
+                                            <a href="{{url('/department/delete/'.$row->id)}}" class="btn btn-danger" onclick="return confirm('ต้องการลบข้อมูลหรือไม่ ?')">ลบ</a>
                                             </td>
                                         </tr>
                                         @endforeach
